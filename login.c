@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[])
 {	
-   FILE* membersData = fopen("./Members.csv", "r");
-   FILE* loggedIn = fopen("./LoggedIn.csv", "w");
+   FILE* membersData = fopen("./members.csv", "r");
+   FILE* loggedIn = fopen("./loggedin.csv", "w");
    char tempLine[1024];
    if(argc==3)
    {
@@ -38,3 +38,5 @@ int main(int argc, char *argv[])
       printf("Missing Input\n");
    }
 }
+
+
