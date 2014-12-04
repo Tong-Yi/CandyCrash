@@ -11,22 +11,20 @@
 }
 h1{
 
-	color: #3535B2;
+	color: #FF1493;
 }
 #nav{
-	text-indent: 100px;
-	background-color: #FFCBD3;
+	;
+	
 	
 }
 a:link{
-	font-family: Lucida;
-	font-weight:bold;
+	
 	text-decoration: none;
-	color: white;
+	color: #FF1493;
 }
 a:visited{
-	font-family: Lucida;
-	font-weight:bold;
+	
 	text-decoration: none;
-	color: white;
+	color: #FF1493;
 }
