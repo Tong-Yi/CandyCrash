@@ -3,11 +3,11 @@ use strict;
 use CGI ':standard';
 
 my $realName = 'Tong Yi';#param('realName');
-my $userName = 'ti';#param('userid');
+my $userName = 'yi';#param('userid');
 my $password = 'abc123'; #param('password');
 my $confirmPassword = 'abc123'; #param('Cpassword');
 $! = 'Error file not found!';
-my $registered = 1;
+my $success = 1;
 #my $members = 'members.csv';
 #my $loggedIn = 'loggedin.csv';
 
@@ -26,38 +26,28 @@ if($password eq $confirmPassword)
       $tempRealName=shift(@membersInfo);
       $tempUsername=shift(@membersInfo);
       $tempPassword=shift(@membersInfo);
-      if($userName eq $tempUsername)
-      {
-         $registered = 1;
-         last;
+      if($userName eq $tempUsername){
+         print "username already fucking taken!\n";
       }
       else
       {
-         $registered = 0;
+         open(MYFILE, '>>members.csv') or die $!;
+         print MYFILE $realName;
+         print MYFILE ",";
+         print MYFILE $userName;
+         print MYFILE ",";
+         print MYFILE $password;
+         print MYFILE "\n";
+         close (MYFILE);
+         open(MYFILE, '>>loggedin.csv') or die $1;
+         print MYFILE $userName;
+         print MYFILE "\n";
+         close (MYFILE);
+         #go to catalouge
       }
    }
 }
 else
 {
    print "passwords do not match!\n";
-}
-if($registered == 0)
-{
-   open(MYFILE, '>>members.csv') or die $!;
-   print MYFILE $realName;
-   print MYFILE ",";
-   print MYFILE $userName;
-   print MYFILE ",";
-   print MYFILE $password;
-   print MYFILE "\n";
-   close (MYFILE);
-   open(MYFILE, '>>loggedin.csv') or die $1;
-   print MYFILE $userName;
-   print MYFILE "\n";
-   close (MYFILE);
-   #go to catalouge
-}
-else
-{
-   #load error
 }
