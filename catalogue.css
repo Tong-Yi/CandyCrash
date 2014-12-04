@@ -3,14 +3,30 @@
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 100px;
-	position: absolute;
-	);
+	position: relative;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+h1{
+
+	color: #3535B2;
+}
+#nav{
+	text-indent: 100px;
+	background-color: #FFCBD3;
+	
 }
 a:link{
+	font-family: Lucida;
+	font-weight:bold;
 	text-decoration: none;
-	color: #FF1493;
+	color: white;
 }
 a:visited{
+	font-family: Lucida;
+	font-weight:bold;
 	text-decoration: none;
-	color: #FF1493;
+	color: white;
 }
