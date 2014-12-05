@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import cgi
 
@@ -13,39 +13,42 @@ total=0.0
 stock1=100
 stock2=50
 stock3=25
-stock4=60
+total=0.0
 if "hidden" not in form:
-	print "<H1>Error: You are not signed in. Click here to go back to </H1>"
-	print "<a href="cgi.cs.mcgill.ca/~dandri2/home_stuff.html">Catalogue</a>"
+	print "ERROR"
+	print "You are not signed in. Click here to go back to "
+	print "<a href="http://cgi.cs.mcgill.ca/~dandri2/catalogue.html">Catalogue</a>"
 	return 
-elif form.getvalue("check1"):
-	text1=form.getvalue("text1")
-	if text1!=0.0 and stock1!=0:
-		print "<p>Item: "
+elif form.getvalue('check1'):
+	print "Bill: "
+	text1=form.getvalue('text1')
+	if text1!=0 and stock1!=0 and text1<(stock1+1):
+		print "<p>Item: Lollipop"
 		print "<p>Quantity: ", text1
-		price1=10.0
+		price1=10.00
 		print "Price: " 
 		sum1=text1*price1
 		stock1=-text1
-	if form.getvalue("check2"):
-		text2=form.getvalue("text2")
-		if text2 and stock2!=0:
-			print "<p>Item: ", 
+	if form.getvalue('check2'):
+		text2=form.getvalue('text2')
+		if text2!=0 and stock2!=0 and text2<(stock2+1):
+			print "<p>Item: M&M's", 
 			print "<p>Quantity: ", text2
-			price1=15.0
+			price2=15.00
 			print "Price: " 
 			sum2=text2*price2
 			stock2=-text2
-		if form.getvalue("check3"):
-			text3=form.getvalue("text3")
-			if text3!=0.0  and stock3!=0:
-				print "<p>Item: ", 
-				print "<p>Quantity: ", text3
-				price3=20.0
-				print "Price: " 
-				sum1=text3*price3 
-				stock3=-text3
-inventory2=inventory-text1-text2-text3
-if inventory2<inventory:
+	if form.getvalue('check3'):
+		text3=form.getvalue('text3')
+		if text3!=0 and stock3!=0 and text3<(stock3+1):
+			print "<p>Item: Reese Chocolate", 
+			print "<p>Quantity: ", text3
+			price3=20.00
+			print "Price: " 
+			sum3=text3*price3 
+			stock3=-text3
 	total=sum1+sum2+sum3
 	print "Total: ", total
+	print "<a href="http://cgi.cs.mcgill.ca/~dandri2/catalogue.html">Catalogue</a>"
+	print "<a href="http://cgi.cs.mcgill.ca/~nboukh5/index.html">Catalogue</a>"
+
