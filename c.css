@@ -1,0 +1,33 @@
+.head{
+background:url("pink2.gif");
+background-repeat: repeat;
+width: 100%;
+height: 100px;
+position: relative;
+top: 0px;
+right: 0px;
+left: 0px;
+}
+a:link{
+text-decoration: none;
+color: #FF1493;
+}
+a:visited{
+text-decoration: none;
+color: #FF1493;
+}
+h1{
+	color:#FF1493;
+	background-color:white;
+}
+
+
+html,body{
+	/*background-image: url(candy3.jpg.svg);
+	background-repeat: no-repeat;*/
+	padding:0;
+    margin:0;
+    /*width:100%;
+    background-size: cover;
+	position: bottom;*/
+}
