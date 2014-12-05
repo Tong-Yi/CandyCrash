@@ -4,7 +4,6 @@
 
 	<head>
 	<link rel="stylesheet" type="text/css" href="catalogue.css">
-	<link href='http://fonts.googleapis.com/css?family=Mystery+Quest|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<title>Catalogue</title> 
 	</head>
 
@@ -13,13 +12,12 @@
 <h1><center>Catalogue</center> </h1>
 <div id="nav">
  <center><a href="http://cgi.cs.mcgill.ca/~tyi/">Home |</a>
- <a href="http://cgi.cs.mcgill.ca/~tyi/catalogue.html">Catalogue |</a>
- <a href="http://cgi.cs.mcgill.ca/~tyi/login.html">Login |</a> </center>
+ <a href="http:/cgi.cs.mcgill.ca/~tyi/catalogue.html">Catalogue |</a>
+ <a href="http:/cgi.cs.mcgill.ca/~tyi/login.html">Login |</a> </center>
 <hr>
 </div>
 <br>
 <br>
-<form>
 <div class="table">
 	<table border="0">
 	
