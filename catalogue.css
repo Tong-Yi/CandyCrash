@@ -1,0 +1,39 @@
+.head{
+	background:url("candykingdom3.jpg");
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100px;
+	position: relative;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	
+}
+hr{
+  margin-right : 150px;
+  margin-left : 150px;
+  border:0;
+  background-color: #FF1493;
+  height: 1px;
+
+
+}
+h1{
+
+	color: #FF1493;
+}
+#nav{
+	
+;	
+	
+}
+a:link{
+	
+	text-decoration: none;
+	color: #FF1493;
+}
+a:visited{
+	
+	text-decoration: none;
+	color: #FF1493;
+}

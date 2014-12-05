@@ -1,0 +1,28 @@
+body{
+	background-image: url("./pic_temp/loginpagewall.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:  110% 100%;
+}
+h1{
+	text-align: left;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 140px;
+	margin-top:4%;
+	margin-left: 23%;
+	position: relative;
+}
+form{
+	text-align: center;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 25px;
+	margin-top:-6%;
+	margin-left: -25%;
+	position: relative;
+}
+input{
+	text-align: center;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 18px;
+	position: relative;
+}

@@ -1,0 +1,32 @@
+body{
+	background-image: url("./pic_temp/CL1.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 105% 100%;	
+}
+h1{
+	text-align: left;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 135px;
+	margin-left: 21%;
+	position: relative;
+}
+table{
+	text-align: right;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 25px;
+	font-color: #fff;
+	margin-top: -6%; 
+	margin-left: 25%;
+	position: relative;
+
+}
+input{
+	text-align: center;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 18px;
+	position: relative;
+}
+
+	
+
