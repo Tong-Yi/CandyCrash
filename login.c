@@ -13,13 +13,7 @@ void errorMessage()
 }
 int main()
 {	
-   char inputedUsername[200];
-   char inputedPassword[200];
-   char c;
-   int a = 0;
-   int b = 0;
-   int lengthCounter = 0;
-   
+
    int n = atoi(getenv("CONTENT_LENGTH"));
    int firstWord = 0;
 
@@ -30,26 +24,14 @@ int main()
    char* tempName;
    char* tempUsername;
    char* tempPass;
+   char* tempTags;
+   char* inputUsername;
+   char* inputPassword;
    
-   while((c = getchar()) != EOF && lengthCounter<n && a<200 && b<200)
-   {
-      if(firstWord = 0)
-      {
-         if(c!='+')
-         {
-            inputedUsername[a] = c;
-            a++;
-         }
-         else firstWord = 1;
-      }
-      else
-      {
-         inputedPassword[b] = c;
-         b++;
-      }
-      lengthCounter++;
-   }
-
+   char* inputString = getenv("QUERY_STRING");
+   temptags = strtok(inputString, "=");
+   inputUsername = strtok(NULL, "&");
+   tempTags = strtok(NULL, "=");
 
    while (fgets(tempLine, 1024, membersData))
    {
