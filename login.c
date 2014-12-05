@@ -29,20 +29,23 @@ int main()
    char* inputPassword;
    
    char* inputString = getenv("QUERY_STRING");
+
    temptags = strtok(inputString, "=");
    inputUsername = strtok(NULL, "&");
    tempTags = strtok(NULL, "=");
+   inputPassword = strtok(NULL, "/0");
 
    while (fgets(tempLine, 1024, membersData))
    {
       tempName = strtok(tempLine, ",");
       tempUsername = strtok(NULL, ",");
       tempPass = strtok(NULL,"\n");
-      if((strcmp(argv[1],tempUsername)==0)&&(strcmp(argv[2],tempPass)==0))
+      if((strcmp(inputUsername,tempUsername)==0)&&(strcmp(inputPassword,tempPass)==0))
       {
-         fprintf(loggedIn, "%s\n", argv[1]);
+         fprintf(loggedIn, "%s\n", inputUsername);
          successLogin = 0;
          //go to catalouge
+         last;
       }
       memset(tempLine,0,sizeof(tempLine));
    }
