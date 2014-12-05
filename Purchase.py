@@ -13,16 +13,14 @@ total=0.0
 stock1=100
 stock2=50
 stock3=25
-total=0.0
 if "hidden" not in form:
 	print "ERROR"
 	print "You are not signed in. Click here to go back to "
 	print "<a href="http://cgi.cs.mcgill.ca/~dandri2/catalogue.html">Catalogue</a>"
 	return 
 elif form.getvalue('check1'):
-	print "Bill: "
 	text1=form.getvalue('text1')
-	if text1!=0 and stock1!=0 and text1<(stock1+1):
+	if text1!=0 and text1<(stock1+1):
 		print "<p>Item: Lollipop"
 		print "<p>Quantity: ", text1
 		price1=10.00
@@ -31,7 +29,7 @@ elif form.getvalue('check1'):
 		stock1=-text1
 	if form.getvalue('check2'):
 		text2=form.getvalue('text2')
-		if text2!=0 and stock2!=0 and text2<(stock2+1):
+		if text2!=0 and text2<(stock2+1):
 			print "<p>Item: M&M's", 
 			print "<p>Quantity: ", text2
 			price2=15.00
@@ -40,13 +38,15 @@ elif form.getvalue('check1'):
 			stock2=-text2
 	if form.getvalue('check3'):
 		text3=form.getvalue('text3')
-		if text3!=0 and stock3!=0 and text3<(stock3+1):
+		if text3!=0 and text3<(stock3+1):
 			print "<p>Item: Reese Chocolate", 
 			print "<p>Quantity: ", text3
 			price3=20.00
 			print "Price: " 
 			sum3=text3*price3 
 			stock3=-text3
+	if text3>stock3 or text2>stock2 or text1>stock1
+		print "Error: You cannot purchase a quantity greater than the inventory"
 	total=sum1+sum2+sum3
 	print "Total: ", total
 	print "<a href="http://cgi.cs.mcgill.ca/~dandri2/catalogue.html">Catalogue</a>"
