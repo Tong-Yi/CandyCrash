@@ -1,5 +1,5 @@
 .head{
-background:url("/home/2014/tyi/public_html/resources/catban.jpg");
+background:url("../resources/catban.jpg");
 background-repeat:no-repeat;
 background-position: relative;
 width: 100%;
@@ -43,3 +43,4 @@ html,body{
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
 }
+

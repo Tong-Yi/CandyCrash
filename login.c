@@ -4,7 +4,7 @@
 
 void printCatalogue(char* username)
 {
-   FILE* catalogue = fopen("../catalogue.html", "r");
+   FILE* catalogue = fopen("./catalogue.html", "r");
    char check[50] = "<input type=\"hidden\" name=\"hiddenUser\" value=\"\">\n";
    char* newLine = malloc(strlen(check)+strlen(username)+1);
    strcat(newLine, "<input type=\"hidden\" name=\"hiddenUser\" value=\"");
@@ -12,8 +12,8 @@ void printCatalogue(char* username)
    strcat(newLine, "\">\n");
    if (catalogue != NULL )
    {
-      char line [ 128 ];
-      while ( fgets ( line, sizeof line, catalogue ) != NULL )
+      char line[128];
+      while (fgets (line, sizeof line, catalogue ) != NULL )
       {
          if(strcmp(check, line)==0)
          {
@@ -33,7 +33,6 @@ int main()
 {	
 
    printf("Content-Type:text/html\n\n");
-   printf("<html>");
 
    char inputString[200];
    char c;
@@ -65,9 +64,18 @@ int main()
    inputUsername = strtok(NULL, "&");
    tempTags = strtok(NULL, "=");
    inputPassword = strtok(NULL, "\0");
-   if(tempTags != NULL)
+   if(tempTags == NULL)
    {
-       while (fgets(tempLine, 1024, membersData))
+      printf("<html>");
+      printf("<head><title>ERROR</title></head>");
+      printf("<body><p>Error: Missing Username and/or Password!</p><body>");
+   }
+   else
+   {
+      printf("<html>");
+      printf("<head><title>%s</title></head>",tempTags);
+      printf("<body><p>Error: Missing Username and/or Password!</p><body>");
+      while (fgets(tempLine, 1024, membersData))
       {
          tempName = strtok(tempLine, ",");
          tempUsername = strtok(NULL, ",");
@@ -83,15 +91,10 @@ int main()
       }
       if(successLogin != 0)
       {
-           
+         printf("<html>");
          printf("<head><title>ERROR</title></head>");
          printf("<body><p>Error: Wrong Username and/or Password!</p><body>");
       }
-   }
-   else
-   {
-      printf("<head><title>ERROR</title></head>");
-         printf("<body><p>Error: Missing Username and/or Password!</p><body>");
    }
    printf("</html>");
    return 0;

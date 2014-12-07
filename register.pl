@@ -9,11 +9,6 @@ my @membersInfo;
 my $tempRealName;
 my $tempUsername;
 my $tempPassword;
-my $str1 = "<input type=\"hidden\" name=\"hiddenUser\" value=\"";
-my $str2 = "\">\n";
-my $newLine;
-
-
 
 my $realName = param('realName');
 my $userName = param('userid');
@@ -64,23 +59,11 @@ if(length($realName) != 0 && length($userName) != 0 && length($password) != 0 &&
 		print FILE $password;
 		print FILE "\n";
 		close (FILE);
-		open FILE, '>>./csv/loggedin.csv' or die $1;
-		print FILE $userName;
-		print FILE "\n";
-		close (FILE);
 		open FILE, '<./catalogue.html' or die $!;
 		while(my $catalogueLine = <FILE>)
 		{
-			if($catalogueLine eq "<input type=\"hidden\" name=\"hiddenUser\" value=\"\"\n>")
-			{
-				$newLine = join "", $str1, $userName, $str2;
-				print $newLine;
-			}
+			print $catalogueLine;
 
-			else
-			{
-				print $catalogueLine;
-			}
 		}
 		close(FILE);
 	}
@@ -88,6 +71,8 @@ if(length($realName) != 0 && length($userName) != 0 && length($password) != 0 &&
 	{
 		print "<head><title>ERROR</title></head>";
 		print "<body><p>Error: Username already taken!</p><body>";
+		print '<a href="http://cgi.cs.mcgill.ca/~tyi/index.html">Home </a>';
+		print '<a href="http://cgi.cs.mcgill.ca/~tyi/registration.html">Registration</a>';
 		print "</html>";
 	}
 }

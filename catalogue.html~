@@ -14,12 +14,12 @@
 <div id="nav">
  <center><a href="http://cgi.cs.mcgill.ca/~tyi/">Home |</a>
  <a href="http://cgi.cs.mcgill.ca/~tyi/catalogue.html">Catalogue |</a>
- <a href="http://cgi.cs.mcgill.ca/~tyi/login.html">Login |</a> </center>
+ <a href="http://cgi.cs.mcgill.ca/~tyi/login.html" target="_blank">Login |</a> </center>
 <hr>
 </div>
 <br>
 <br>
-<form>
+<form action="./cgi-bin/purchase.py" method="get">
 <input type="hidden" name="hiddenUser" value="">
 <div class="table">
 	<table border="0">
@@ -35,7 +35,7 @@
 	<br> Great candy to silence your kids!
 	<br>
 	<br>
-	Price: 5000$
+	Price: 4.00$
 	 <input type="checkbox" name ="Lolli" value="candy1">Quantity <input type="text" name="Quantity1" min = "0" value ="0"> </th>
 	</td>
 	</tr>
@@ -50,7 +50,7 @@
 	<br> People's favorite colorful button-shapped candies
 	<br>
 	<br>
-	Price: 10000$
+	Price: 3.00$
 	<input type="checkbox" name ="M&M" value="candy2">Quantity  <input type="text" name="Quantity2" min = "0" value ="0">
 	</td>
 		</tr>
@@ -64,7 +64,7 @@
 	<br> Enjoy the these amazing chocolates today.
 	<br> Warning has PEANUTS!
 	<br>
-	Price: 200$
+	Price: 2.50$
 	<input type="checkbox" name ="Reese" value="candy3">Quantity  <input type="text" name="Quantity3" min = "0" value ="0">
 	</td> 
 	</tr>
