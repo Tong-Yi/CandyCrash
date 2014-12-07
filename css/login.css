@@ -1,23 +1,22 @@
 body{
-	background-image: url("./pic_temp/CL1.jpg");
+	background-image: url("../resources/loginpagewall.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: 105% 100%;	
+	background-size:  110% 100%;
 }
 h1{
 	text-align: left;
 	font-family: 'Open Sans Condensed', sans-serif; 
-	font-size: 135px;
-	margin-top: 2%;
-	margin-left: 21%;
+	font-size: 140px;
+	margin-top:2%;
+	margin-left: 23%;
 }
-table{
-	text-align: right;
+form{
+	text-align: center;
 	font-family: 'Open Sans Condensed', sans-serif; 
 	font-size: 22px;
-	font-color: #fff;
-	margin-top: -6%; 
-	margin-left: 25%;
+	margin-top:-6%;
+	margin-left: -29%;
 }
 input{
 	text-align: center;
@@ -28,8 +27,15 @@ input{
 	text-align: right;
 	font-family: 'Open Sans Condensed', sans-serif; 
 	font-size: 18px;
-
-}a:link{
+}
+#user{
+	text-align: left;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: 18px;
+	margin-top: 0.5%;
+	margin-left: 33.8%;
+}
+a:link{
 	text-decoration: none;
 	color: #000;
 }
@@ -37,5 +43,3 @@ a:visited{
 	text-decoration: none;
 	color: #000;
 }
-	
-

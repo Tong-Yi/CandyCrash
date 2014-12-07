@@ -2,62 +2,99 @@
 use strict;
 use CGI ':standard';
 
-my $realName = 'Tong Yi';#param('realName');
-my $userName = 'ti';#param('userid');
-my $password = 'abc123'; #param('password');
-my $confirmPassword = 'abc123'; #param('Cpassword');
 $! = 'Error file not found!';
 my $registered = 1;
-#my $members = 'members.csv';
-#my $loggedIn = 'loggedin.csv';
 
-#my @membersLine = <./members.csv>;
-
-#open FILE, "<members.csv" or die $!;
 my @membersInfo;
 my $tempRealName;
 my $tempUsername;
 my $tempPassword;
-open FILE, '<members.csv' or die $!;
-if($password eq $confirmPassword)
+my $str1 = "<input type=\"hidden\" name=\"hiddenUser\" value=\"";
+my $str2 = "\">\n";
+my $newLine;
+
+
+
+my $realName = param('realName');
+my $userName = param('userid');
+my $password = param('password');
+my $confirmPassword = param('Cpassword');
+
+print "Content-Type:text/html\n\n";
+print "<html>";
+
+if(length($realName) != 0 && length($userName) != 0 && length($password) != 0 && length($confirmPassword) != 0)
 {
-   while (my $membersLine = <FILE>){
-      @membersInfo=split/,/,$membersLine;
-      $tempRealName=shift(@membersInfo);
-      $tempUsername=shift(@membersInfo);
-      $tempPassword=shift(@membersInfo);
-      if($userName eq $tempUsername)
-      {
-         $registered = 1;
-         last;
-      }
-      else
-      {
-         $registered = 0;
-      }
-   }
+	
+
+	if($password eq $confirmPassword)
+	{
+		open FILE, '<./csv/members.csv' or die $!;
+		while (my $membersLine = <FILE>)
+		{
+			@membersInfo=split/,/,$membersLine;
+			$tempRealName=shift(@membersInfo);
+			$tempUsername=shift(@membersInfo);
+			$tempPassword=shift(@membersInfo);
+			if($userName eq $tempUsername)
+			{
+				$registered = 1;
+				last;
+			}
+			else
+			{
+				$registered = 0;
+			}
+		}
+	}
+	else
+	{
+		print "<head><title>ERROR</title></head>";
+		print "<body><p>Error: Passwords do not match!</p><body>";
+		print "</html>";
+		exit;
+	}
+	if($registered == 0)
+	{
+		open FILE, '>>./csv/members.csv' or die $!;
+		print FILE $realName;
+		print FILE ",";
+		print FILE $userName;
+		print FILE ",";
+		print FILE $password;
+		print FILE "\n";
+		close (FILE);
+		open FILE, '>>./csv/loggedin.csv' or die $1;
+		print FILE $userName;
+		print FILE "\n";
+		close (FILE);
+		open FILE, '<./catalogue.html' or die $!;
+		while(my $catalogueLine = <FILE>)
+		{
+			if($catalogueLine eq "<input type=\"hidden\" name=\"hiddenUser\" value=\"\"\n>")
+			{
+				$newLine = join "", $str1, $userName, $str2;
+				print $newLine;
+			}
+
+			else
+			{
+				print $catalogueLine;
+			}
+		}
+		close(FILE);
+	}
+	else
+	{
+		print "<head><title>ERROR</title></head>";
+		print "<body><p>Error: Username already taken!</p><body>";
+		print "</html>";
+	}
 }
 else
 {
-   print "passwords do not match!\n";
+	print "<head><title>ERROR</title></head>";
+	print "<body><p>Error: Missing Parameters!</p><body>";
+	print "</html>";
 }
-if($registered == 0)
-{
-   open(MYFILE, '>>members.csv') or die $!;
-   print MYFILE $realName;
-   print MYFILE ",";
-   print MYFILE $userName;
-   print MYFILE ",";
-   print MYFILE $password;
-   print MYFILE "\n";
-   close (MYFILE);
-   open(MYFILE, '>>loggedin.csv') or die $1;
-   print MYFILE $userName;
-   print MYFILE "\n";
-   close (MYFILE);
-   #go to catalouge
-}
-else
-{
-   #load error
-}
+

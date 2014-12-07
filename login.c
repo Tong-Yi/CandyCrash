@@ -1,60 +1,102 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void errorMessage()
+
+void printCatalogue(char* username)
 {
-   printf("%s%c%c\n","Content-Type:text/html",13,10);
-   printf("%s\n\n","Content-Type:text/html");
-   printf("Content-Type:text/html\n\n");
-   printf("<html>");
-   printf("<head><title>ERROR</title></head>");
-   printf("<body><p>Wrong username and/or password!</p><body>");
-   printf("</html>");
+   //FILE* test = fopen("./test.txt", "w");
+   FILE* catalogue = fopen("../catalogue.html", "r");
+   char check[50] = "<input type=\"hidden\" name=\"hiddenUser\" value=\"\">\n";
+   char* newLine = malloc(strlen(check)+strlen(username)+1);
+   strcat(newLine, "<input type=\"hidden\" name=\"hiddenUser\" value=\"");
+   strcat(newLine, username);
+   strcat(newLine, "\">\n");
+   if (catalogue != NULL )
+   {
+      char line [ 128 ];
+      while ( fgets ( line, sizeof line, catalogue ) != NULL )
+      {
+         if(strcmp(check, line)==0)
+         {
+            fputs (newLine, stdout);
+            //fprintf(test, "%s", newLine);
+         }
+         else fputs (line, stdout);
+      }
+      fclose ( catalogue );
+   }
+   else
+   {
+      printf("<head><title>ERROR: 404</title></head>");
+      printf("<body><p>Error 404: Catalogue not found!</p><body>");
+   }
 }
 int main()
 {	
 
-   int n = atoi(getenv("CONTENT_LENGTH"));
-   int firstWord = 0;
+   printf("Content-Type:text/html\n\n");
+   printf("<html>");
 
-   FILE* membersData = fopen("./members.csv", "r");
-   FILE* loggedIn = fopen("./loggedin.csv", "w");
+   char inputString[200];
+   char c;
+   int counter = 0;
+   int firstWord = 0;
+   int length = atoi((getenv("CONTENT_LENGTH")));
+
+   FILE* membersData = fopen("../csv/members.csv", "r");
+   FILE* loggedIn = fopen("../csv/loggedin.csv", "a");
    char tempLine[1024];
    int successLogin = 1;
+   char* tempTags;
    char* tempName;
    char* tempUsername;
    char* tempPass;
-   char* tempTags;
    char* inputUsername;
    char* inputPassword;
-   
-   char* inputString = getenv("QUERY_STRING");
-
-   temptags = strtok(inputString, "=");
+   while ((c = getchar()) != EOF && counter<length)
+   {
+      if (counter < 200)
+      {
+         if (c!='+') inputString[counter]=c;
+         else inputString[counter]=' ';
+         counter++;
+      }
+   }
+   inputString[counter] = '\0';
+   tempTags = strtok(inputString, "=");
    inputUsername = strtok(NULL, "&");
    tempTags = strtok(NULL, "=");
-   inputPassword = strtok(NULL, "/0");
-
-   while (fgets(tempLine, 1024, membersData))
+   inputPassword = strtok(NULL, "\0");
+   if(tempTags != NULL)
    {
-      tempName = strtok(tempLine, ",");
-      tempUsername = strtok(NULL, ",");
-      tempPass = strtok(NULL,"\n");
-      if((strcmp(inputUsername,tempUsername)==0)&&(strcmp(inputPassword,tempPass)==0))
+       while (fgets(tempLine, 1024, membersData))
       {
-         fprintf(loggedIn, "%s\n", inputUsername);
-         successLogin = 0;
-         //go to catalouge
-         last;
+         tempName = strtok(tempLine, ",");
+         tempUsername = strtok(NULL, ",");
+         tempPass = strtok(NULL,"\n");
+         if((strcmp(inputUsername,tempUsername)==0)&&(strcmp(inputPassword,tempPass)==0))
+         {
+            fprintf(loggedIn, "%s\n", inputUsername);
+            successLogin = 0;
+            printCatalogue(inputUsername);
+            break;
+         }
+         memset(tempLine,0,sizeof(tempLine));
       }
-      memset(tempLine,0,sizeof(tempLine));
+      if(successLogin != 0)
+      {
+           
+         printf("<head><title>ERROR</title></head>");
+         printf("<body><p>Error: Wrong Username and/or Password!</p><body>");
+      }
    }
-   if(successLogin != 0)
+   else
    {
-      //go to error page
-      errorMessage();
+      printf("<head><title>ERROR</title></head>");
+         printf("<body><p>Error: Missing Username and/or Password!</p><body>");
    }
-
+   printf("</html>");
+   return 0;
 }
 
 

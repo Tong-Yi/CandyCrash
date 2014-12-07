@@ -1,21 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void errorMessage()
-{
-   printf("%s%c%c\n","Content-Type:text/html",13,10);
-   printf("%s\n\n","Content-Type:text/html");
+
+void main()
+{	
+
    printf("Content-Type:text/html\n\n");
    printf("<html>");
    printf("<head><title>ERROR</title></head>");
-   printf("<body><p>Wrong username and/or password!</p><body>");
-   printf("</html>");
-}
-int main()
-{	
+   //printf("<body><p>Error: Wrong Username and/or Password!</p></body>");
 
-   int n = atoi(getenv("CONTENT_LENGTH"));
+   char inputString[200];
+   char c;
+   int counter = 0;
    int firstWord = 0;
+   int length = atoi((getenv("CONTENT_LENGTH"));
 
    FILE* membersData = fopen("./members.csv", "r");
    FILE* loggedIn = fopen("./loggedin.csv", "w");
@@ -24,17 +23,20 @@ int main()
    char* tempName;
    char* tempUsername;
    char* tempPass;
-   char* tempTags;
    char* inputUsername;
    char* inputPassword;
-   
-   char* inputString = getenv("QUERY_STRING");
-
-   temptags = strtok(inputString, "=");
-   inputUsername = strtok(NULL, "&");
-   tempTags = strtok(NULL, "=");
-   inputPassword = strtok(NULL, "/0");
-
+   while ((c = getchar()) != EOF && counter<length)
+   {
+      if (counter < 200)
+      {
+         if (c!='+') inputString[counter]=c;
+         else inputString[counter]=' ';
+         counter++;
+      }
+   }
+   inputString[counter] = ‘\0’;
+   printf("<body><p>Error: %s</p></body>", inputString);
+   /*
    while (fgets(tempLine, 1024, membersData))
    {
       tempName = strtok(tempLine, ",");
@@ -44,17 +46,16 @@ int main()
       {
          fprintf(loggedIn, "%s\n", inputUsername);
          successLogin = 0;
-         //go to catalouge
-         last;
+         
+         break;
       }
       memset(tempLine,0,sizeof(tempLine));
    }
    if(successLogin != 0)
    {
-      //go to error page
-      errorMessage();
-   }
-
+      printf("<body><p>Wrong username and/or password!</p><body>");
+   }*/
+   printf("</html>");
 }
 
 

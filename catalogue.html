@@ -3,8 +3,8 @@
 <html>
 
 	<head>
-	<link rel="stylesheet" type="text/css" href="catalogue.css">
-	<link href='http://fonts.googleapis.com/css?family=Mystery+Quest|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./css/catalogue.css">
+	<link href="http://fonts.googleapis.com/css?family=Mystery+Quest|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
 		<title>Catalogue</title> 
 	</head>
 
@@ -20,6 +20,7 @@
 <br>
 <br>
 <form>
+<input type="hidden" name="hiddenUser" value="">
 <div class="table">
 	<table border="0">
 	
@@ -28,13 +29,14 @@
         </tr>
 	
 	<tr>
-	<td><img src="./pic_temp/chupa.jpg" alt=Lollipop width="200" height="200"</td>
-	<td> The most popular brand of lollipops the ChupaChups.<br> Get It Now! Cheapest on the market!
+	<td><img src="./resources/chupa.jpg" alt=Lollipop width="200" height="200"</td>
+	<td> The most popular brand of lollipops the ChupaChups.
+	<br> Get It Now! Cheapest on the market!
+	<br> Great candy to silence your kids!
 	<br>
 	<br>
-	<br>
-	Price: 5000$
-	 <input type="checkbox" name ="Lolli" value="candy">Quantity <input type="number" name="Quantity"> </th>
+	Price: 4.00$
+	 <input type="checkbox" name ="Lolli" value="candy1">Quantity <input type="text" name="Quantity1" min = "0" value ="0"> </th>
 	</td>
 	</tr>
 	
@@ -42,13 +44,14 @@
 	<th> M&M's</th>
         </tr>	
 	<tr>
-	<td><img src="./pic_temp/mAndm.jpg" alt= m&m width="200" height="200"</td>
-	<td> M&M's pack of 200g, CandyCrash best seller!<br>People's favorite colorful button-shapped candies! 
+	<td><img src="./resources/mAndm.jpg" alt= m&m width="200" height="200"</td>
+	<td> M&M's pack of 200g, CandyCrash best seller!
+	<br> Delicious chocolate coated with candy.
+	<br> People's favorite colorful button-shapped candies
 	<br>
 	<br>
-	<br>
-	Price: 10000$
-	<input type="checkbox" name ="M&M" value="candy">Quantity <input type="number" name="Quantity">
+	Price: 3.00$
+	<input type="checkbox" name ="M&M" value="candy2">Quantity  <input type="text" name="Quantity2" min = "0" value ="0">
 	</td>
 		</tr>
 	
@@ -56,19 +59,20 @@
 	<th> Reese Chocolate </th>
         </tr>
 	<tr>
-	<td width:"200"; height: "150"><img src="./pic_temp/reese.jpg" name=Reese width="200" height="200"</td>
-	<td> Reese Chocolate with peanut butter. Two in a Pack
+	<td width:"200"; height: "150"><img src="./resources/reese.jpg" name=Reese width="200" height="200"</td>
+	<td> Hershey's Reese's uses world class chocolate and peanut butter.
+	<br> Enjoy the these amazing chocolates today.
+	<br> Warning has PEANUTS!
 	<br>
-	<br>
-	<br>
-	Price: 200$
-	<input type="checkbox" name ="Reese" value="candy">Quantity <input type="number" name="Quantity">	
+	Price: 2.50$
+	<input type="checkbox" name ="Reese" value="candy3">Quantity  <input type="text" name="Quantity3" min = "0" value ="0">
 	</td> 
 	</tr>
 	</table>
 	<br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Purchase">
 	</form>
+<br><br><br>	
 
 </div>
 </body>

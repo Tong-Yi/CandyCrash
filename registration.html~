@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="registration.css">
+	<link rel="stylesheet" type="text/css" href="./css/registration.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<title> CandyCrash Registration</title>
 	</head>
 
 	<body>	
 		<div id='home'>
-		<a href ='http://cgi.cs.mcgill.ca/~dandri2/index.html'> Home </a>
+		<a href ='http://cgi.cs.mcgill.ca/~tyi/index.html'> Home </a>
 		</div>
 	<h1>Sign Up</h1>
 	<br>
 	<br>	
-	<form action=“./cgi-bin/test.pl” method=“post”>
+	<form action="./register.pl" method="post">
 	<table height:"300">
 	<tr>
 	<td>
