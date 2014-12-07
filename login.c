@@ -4,7 +4,6 @@
 
 void printCatalogue(char* username)
 {
-   //FILE* test = fopen("./test.txt", "w");
    FILE* catalogue = fopen("../catalogue.html", "r");
    char check[50] = "<input type=\"hidden\" name=\"hiddenUser\" value=\"\">\n";
    char* newLine = malloc(strlen(check)+strlen(username)+1);
@@ -19,7 +18,6 @@ void printCatalogue(char* username)
          if(strcmp(check, line)==0)
          {
             fputs (newLine, stdout);
-            //fprintf(test, "%s", newLine);
          }
          else fputs (line, stdout);
       }
